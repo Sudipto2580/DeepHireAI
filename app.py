@@ -1,15 +1,12 @@
 import streamlit as st
 
 from utils.auth import login, signup
-from utils.database import create_database
-
 st.set_page_config(
     page_title="DeepHire AI",
     page_icon="🚀",
     layout="wide"
 )
 
-create_database()
 
 # ---------------------------
 # SESSION
