@@ -1,10 +1,9 @@
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-from models.embedding_model import model
-
+from models.embedding_model import get_model
 
 def create_vector_store(text):
-
+    model = get_model()
     chunks = []
 
     chunk_size = 500
@@ -12,6 +11,7 @@ def create_vector_store(text):
     for i in range(0, len(text), chunk_size):
         chunks.append(text[i:i + chunk_size])
 
+    model = get_model()
     embeddings = model.encode(chunks)
 
     return embeddings, chunks
@@ -23,6 +23,7 @@ def retrieve_context(
     chunks
 ):
 
+    model = get_model()
     query_embedding = model.encode([question])
 
     similarities = cosine_similarity(
