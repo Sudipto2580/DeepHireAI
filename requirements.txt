@@ -1,5 +1,4 @@
 torch
-transformers
 numpy
 pymupdf
 sqlalchemy

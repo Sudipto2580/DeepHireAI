@@ -1,10 +1,7 @@
-from sentence_transformers import SentenceTransformer
-import faiss
 import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+from models.embedding_model import model
 
-model = SentenceTransformer(
-    "sentence-transformers/all-MiniLM-L6-v2"
-)
 
 def create_vector_store(text):
 
@@ -12,54 +9,34 @@ def create_vector_store(text):
 
     chunk_size = 500
 
-    for i in range(
-        0,
-        len(text),
-        chunk_size
-    ):
-        chunks.append(
-            text[i:i+chunk_size]
-        )
+    for i in range(0, len(text), chunk_size):
+        chunks.append(text[i:i + chunk_size])
 
-    embeddings = model.encode(
-        chunks
-    )
+    embeddings = model.encode(chunks)
 
-    dimension = embeddings.shape[1]
-
-    index = faiss.IndexFlatL2(
-        dimension
-    )
-
-    index.add(
-        np.array(
-            embeddings
-        ).astype("float32")
-    )
-
-    return index, chunks
+    return embeddings, chunks
 
 
 def retrieve_context(
     question,
-    index,
+    embeddings,
     chunks
 ):
 
-    query_embedding = model.encode(
-        [question]
-    )
+    query_embedding = model.encode([question])
 
-    distances, indices = index.search(
-        np.array(
-            query_embedding
-        ).astype("float32"),
-        3
-    )
+    similarities = cosine_similarity(
+        query_embedding,
+        embeddings
+    )[0]
+
+    top_indices = np.argsort(
+        similarities
+    )[-3:][::-1]
 
     context = ""
 
-    for idx in indices[0]:
+    for idx in top_indices:
 
         if idx < len(chunks):
 

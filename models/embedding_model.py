@@ -1,9 +1,10 @@
+import streamlit as st
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer(
-    "sentence-transformers/all-MiniLM-L6-v2"
-)
+@st.cache_resource
+def load_model():
+    return SentenceTransformer(
+        "all-MiniLM-L6-v2"
+    )
 
-def get_embedding(text):
-
-    return model.encode(text)
+model = load_model()
