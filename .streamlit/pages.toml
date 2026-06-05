@@ -1,6 +1,3 @@
-[[pages]]
-path = "app.py"
-name = ""
 
 [[pages]]
 path = "pages/1_Dashboard.py"
