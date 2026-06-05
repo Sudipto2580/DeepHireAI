@@ -1,0 +1,43 @@
+[[pages]]
+path = "app.py"
+name = ""
+
+[[pages]]
+path = "pages/1_Dashboard.py"
+name = "Dashboard"
+
+[[pages]]
+path = "pages/2_ATS_Analysis.py"
+name = "ATS Analysis"
+
+[[pages]]
+path = "pages/3_Analytics.py"
+name = "Analytics"
+
+[[pages]]
+path = "pages/4_History.py"
+name = "History"
+
+[[pages]]
+path = "pages/6_Profile.py"
+name = "Profile"
+
+[[pages]]
+path = "pages/7_Resume_Analyzer.py"
+name = "Resume Analyzer"
+
+[[pages]]
+path = "pages/8_Settings.py"
+name = "Settings"
+
+[[pages]]
+path = "pages/9_AI_Recruiter.py"
+name = "AI Recruiter"
+
+[[pages]]
+path = "pages/11_Resume_AI_Assistant.py"
+name = "Resume AI Assistant"
+
+[[pages]]
+path = "pages/12_AI_Interviewer.py"
+name = "AI Interviewer"

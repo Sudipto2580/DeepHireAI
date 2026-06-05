@@ -1,0 +1,37 @@
+.stApp{
+background:#FFFFFF;
+color:#111827;
+}
+
+[data-testid="stSidebar"]{
+background:#E2E8F0;
+}
+
+.stButton button{
+background:#0EA5E9;
+color:white;
+}
+
+/* Streamlit 1.57 - Remove APP label */
+
+[data-testid="stSidebarNav"] ul::before {
+    display: none !important;
+    content: "" !important;
+}
+
+[data-testid="stSidebarNav"] span {
+    font-size: 0px;
+}
+
+[data-testid="stSidebarNav"] li span {
+    font-size: 16px !important;
+}
+
+header{
+    visibility:hidden;
+}
+
+[data-testid="stSidebarNav"] > ul::before{
+    content:"";
+    display:none;
+}

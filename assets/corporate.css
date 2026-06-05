@@ -1,0 +1,13 @@
+.stApp{
+background:#F8FAFC;
+color:#111827;
+}
+
+[data-testid="stSidebar"]{
+background:#1E3A8A;
+}
+
+.stButton button{
+background:#2563EB;
+color:white;
+}
