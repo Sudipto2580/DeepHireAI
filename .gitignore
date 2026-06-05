@@ -1,11 +1,10 @@
-__pycache__/
-*.pyc
-.venv/
 .env
+.venv/
 
 database/
 *.db
 
-reports/*.pdf
+__pycache__/
+*.pyc
 
-.vscode/
+reports/*.pdf
